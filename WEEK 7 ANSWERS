@@ -1,0 +1,49 @@
+function count = freezing(temperatures)
+    count = sum(temperatures < 32);
+end
+function s = halfsum(M)
+   [n, m] = size(M);
+   s = 0;
+   for row = 1:n
+       for column = row:m
+           s = s + M(row, column);
+       end
+   end
+end
+function p = is_leap_year(year)
+    if mod(year, 4) == 0
+        if mod(year, 100) == 0
+            if mod(year, 400) == 0
+                p = true;
+            else
+                p = false;
+            end
+        else
+            p = true;
+        end
+    else
+        p = false;
+    end
+end
+function [summa, index] = max_sum(v, n)
+    [~, len] = size(v);
+    summa = -inf;
+    if n > len
+        summa = 0;
+    end
+    index = -1;
+    for i = 1:(len - n + 1)
+        s = sum(v(i : i + n - 1));
+        if s > summa
+            summa = s;
+            index = i;
+        end
+    end
+end
+
+unction number = next_prime(number)
+    while ~isprime(number + 1)
+        number = number + 1;
+    end
+    number = number + 1;
+end
