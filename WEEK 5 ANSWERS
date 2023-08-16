@@ -1,0 +1,26 @@
+function [max_min_diff, total_max_min_diff] = minimax(M)
+    max_rows = max(M');
+    min_rows = min(M');
+    max_min_diff = max_rows - min_rows;
+    total_max_min_diff = max(max_rows) - min(min_rows);
+end
+
+function [r, s] = randInt(rangeNums, dimensions)
+    start = rangeNums(1);
+    last = rangeNums(2);
+    r = start + (last - start) * rand(dimensions);
+    r = round(r);
+    s = sum(sum(r));
+end
+
+clc;
+clear;
+
+x = input('Enter input data : ');
+fprintf('text %.2f \n', x);
+
+function M = trio(n, m)
+    M = ones(3 * n, m);
+    M(n + 1 : 2 * n, :) = 2 * ones(n, m);
+    M(2 * n + 1 : end, :) = 3 * ones(n, m);
+end
